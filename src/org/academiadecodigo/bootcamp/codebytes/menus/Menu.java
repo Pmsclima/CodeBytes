@@ -37,6 +37,9 @@ public class Menu {
             Thread.sleep(7000);
             menuLoading.draw();
             menuPresentScreen.delete();
+            Thread.sleep(14500);
+            menuMain.draw();
+            menuPresentScreen.delete();
         }
 
 
@@ -58,6 +61,13 @@ public class Menu {
 
         public void instructionsDelete() {
             instructions.delete();
+        }
+
+        public void menuBack() {
+            mainMenu();
+            instructions.delete();
+            credits.delete();
+
         }
 
 

@@ -1,8 +1,13 @@
 package org.academiadecodigo.bootcamp.codebytes.objects.figures;
 
+import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
+import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
+
 public abstract class GameObject {
 
-    
+    private Grid grid;
+    private GridPosition position;
+    private boolean collided;
     private int points;
     private int lifes;
 

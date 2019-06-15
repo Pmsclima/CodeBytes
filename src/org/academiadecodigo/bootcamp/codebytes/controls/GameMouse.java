@@ -1,4 +1,4 @@
 package org.academiadecodigo.bootcamp.codebytes.controls;
 
-public class KeyBoardHandler {
+public class GameMouse {
 }

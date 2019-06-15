@@ -1,6 +1,6 @@
 package org.academiadecodigo.bootcamp.codebytes;
 
-import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
+import org.academiadecodigo.bootcamp.codebytes.engine.Game;
 
 public class Main {
 

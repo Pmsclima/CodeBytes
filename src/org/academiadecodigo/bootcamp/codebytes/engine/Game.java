@@ -1,7 +1,8 @@
-package org.academiadecodigo.bootcamp.codebytes;
+package org.academiadecodigo.bootcamp.codebytes.engine;
 
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.objectfactory.GameObjectsType;
+import org.academiadecodigo.bootcamp.codebytes.objects.figures.Player;
 
 public class Game {
 

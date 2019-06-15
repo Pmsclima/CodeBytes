@@ -1,8 +1,11 @@
 package org.academiadecodigo.bootcamp.codebytes.media;
 
 public enum Backgrounds {
-    ;
-
-    public enum GameObjectsType {
+    BACKGROUND1,
+    BACKGROUND2,
+    BACKGROUND3,
+    BACKGROUND4,
+    BACKGROUND5
     }
-}
+
+

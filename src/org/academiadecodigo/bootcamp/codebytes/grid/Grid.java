@@ -1,4 +1,4 @@
-package org.academiadecodigo.bootcamp.codebytes.Grid;
+package org.academiadecodigo.bootcamp.codebytes.grid;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;

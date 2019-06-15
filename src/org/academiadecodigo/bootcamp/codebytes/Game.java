@@ -1,8 +1,10 @@
 package org.academiadecodigo.bootcamp.codebytes;
 
+import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.objectfactory.GameObjectsType;
 
 public class Game {
+
 
     private Player player;
     private GameObjectsType gameObjectsType;
@@ -13,6 +15,8 @@ public class Game {
     }
 
     public void init(){
+        Grid grid = new Grid();
+        grid.initialization();
 
     }
 

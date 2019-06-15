@@ -1,14 +1,14 @@
 package org.academiadecodigo.bootcamp.codebytes.engine;
 
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
-import org.academiadecodigo.bootcamp.codebytes.objectfactory.GameObjectsType;
-import org.academiadecodigo.bootcamp.codebytes.objects.figures.Player;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
+import org.academiadecodigo.bootcamp.codebytes.player.Player;
 
 public class Game {
 
 
     private Player player;
-    private GameObjectsType gameObjectsType;
+    private GameObjectType gameObjectType;
     private int points;
     private int lifes;
 

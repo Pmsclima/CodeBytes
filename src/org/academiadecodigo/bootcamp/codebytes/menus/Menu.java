@@ -24,7 +24,7 @@ public class Menu {
             this.menuLoading = new Picture(0,0, "Resources/Menu/Start.jpg"); // logo screen
             this.instructions = new Picture(0,0, "Resources/Menu/Instructions.jpg"); // instructions screen
             this.credits = new Picture(0,0, ""); // credits screen; todo: need path & img on resources
-            loading = new Sound("/resources/sounds/MGMT_Kids.wav)");
+            loading = new Sound("/resources/sounds/MGMT_Kids.wav");
 
         }
 
@@ -36,7 +36,6 @@ public class Menu {
             loading.play(false);
             Thread.sleep(7000);
             menuLoading.draw();
-
             menuPresentScreen.delete();
         }
 
@@ -44,6 +43,28 @@ public class Menu {
         public void mainMenu () {
             menuMain.draw();
         }
+
+        public void instructions() {
+            instructions.draw();
+        }
+
+        public void credits() {
+            credits.draw();
+        }
+
+        public void creditsDelete() {
+            credits.delete();
+        }
+
+        public void instructionsDelete() {
+            instructions.delete();
+        }
+
+
+
+
+
+
     }
 
 

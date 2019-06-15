@@ -30,6 +30,7 @@ public class GridPosition {
 
     public void collision () {
         collided = true;
+        picture.delete();
     }
 
     public void positionMove (GridDirection direction) {

@@ -30,13 +30,9 @@ public class CollisionDetector {
         return false;
     }
 
-    public void check() {
+    public void checkGameObjects() {
 
-        for (Car ic : cars) {
-
-            if (ic == car) {
-                continue;
-            }
+        for (GameObject gameObject : gameObjects) {
 
             if (ic.getPos().equals(car.getPos())) {
                 ic.crash();

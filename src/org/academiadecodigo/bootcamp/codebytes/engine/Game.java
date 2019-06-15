@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.codebytes.engine;
 
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
+import org.academiadecodigo.bootcamp.codebytes.menus.Menu;
 import org.academiadecodigo.bootcamp.codebytes.objectfactory.GameObjectsType;
 import org.academiadecodigo.bootcamp.codebytes.objects.figures.Player;
 
@@ -18,7 +19,12 @@ public class Game {
     public void init(){
         Grid grid = new Grid();
         grid.initialization();
-
+        Menu.MenuRepresentation menu = new Menu.MenuRepresentation();
+        try {
+            menu.init();
+        } catch (InterruptedException e) {
+            e.getMessage();
+        }
     }
 
     public void start(){

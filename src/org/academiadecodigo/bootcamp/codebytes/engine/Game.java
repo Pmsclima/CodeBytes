@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.codebytes.engine;
 
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
+import org.academiadecodigo.bootcamp.codebytes.grid.GridDirection;
 import org.academiadecodigo.bootcamp.codebytes.media.Backgrounds;
 import org.academiadecodigo.bootcamp.codebytes.media.sound.Sound;
 import org.academiadecodigo.bootcamp.codebytes.menus.Menu;
@@ -49,13 +50,23 @@ public class Game {
 
         player = new Player(grid);
 
+        while (lifes != 0) {
+
+            GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
+            gameObject.move(GridDirection.DOWN, 1);
+            // check collision??
+            // delay?
+        }
+
+        gameOver();
+
         //GameObject go = GameObjectFactory.createNewGameObject(grid);
 
     }
 
     // TODO: 16/06/2019 - Need to implement points gathered and reset.
     public void gameOver(){
-        Picture gameOver = new Picture(0,0, "resources/menu/gameover.jpg");
+        Picture gameOver = new Picture(Grid.PADDING,Grid.PADDING, "resources/menu/gameover.jpg");
         gameOver.draw();
         gameBackGround.delete();
         try {

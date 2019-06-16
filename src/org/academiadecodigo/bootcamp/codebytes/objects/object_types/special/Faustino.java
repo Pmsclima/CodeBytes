@@ -6,7 +6,7 @@ import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
 
 public class Faustino extends GameObject{
 
-    public Faustino(GridPosition position, GameObjectType gameObjectType) {
+    public Faustino(GridPosition position) {
         super(position, GameObjectType.FAUSTINO);
     }
 

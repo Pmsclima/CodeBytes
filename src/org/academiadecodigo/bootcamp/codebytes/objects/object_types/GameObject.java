@@ -5,6 +5,7 @@ import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridDirection;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
 import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class GameObject {
 
@@ -16,10 +17,13 @@ public abstract class GameObject {
     private boolean collided = false;
     private int objectPoints;
     protected CollisionDetector collisionDetector;
+    private Picture picture;
 
     public GameObject(GridPosition position, GameObjectType gameObjectType) {
         this.position = position;
         this.gameObjectType = gameObjectType;
+        objectPoints = gameObjectType.getObjectPoints();
+
     }
 
     public void move(GridDirection direction, int speed) {
@@ -45,7 +49,7 @@ public abstract class GameObject {
         this.collided = true;
     }
 
-    public GridDirection chooseDirection() {
+    /*public GridDirection chooseDirection() {
 
         GridDirection newDirection = currentDirection;
 
@@ -60,7 +64,7 @@ public abstract class GameObject {
 
         return newDirection;
 
-    }
+    }*/
 
 
     public boolean isHittingWall() {

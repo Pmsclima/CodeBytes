@@ -20,9 +20,9 @@ public class Player implements KeyboardHandler {
     private int speed = 0;
     protected GridDirection currentDirection;
 
-    public Player(GridPosition position) {
-        playerPosition = new GridPosition(((int) (Math.random() * 24), 14, grid, Pictures ))
-        this.currentDirection = GridDirection.DOWN;
+    public Player(Grid grid) {
+        playerPosition = new GridPosition(((int) (Math.random() * 24)), 12, grid, "\\Resources\\Logos\\Player.png" );
+        //this.currentDirection = GridDirection.DOWN;
         this.lives = 3;
         keyboard = new Keyboard(this);
         init();
@@ -52,15 +52,15 @@ public class Player implements KeyboardHandler {
         keyboard.addEventListener(slower);
     }
 
-    public Player createPlayer() {
-        return new Player(new GridPosition(((int) (Math.random() * 24), 14, Pictures.);
-    }
+    /*public Player createPlayer() {
+        return new Player();
+    }*/
 
     public void move() {
-        accelerate(currentDirection, speed);
+        //accelerate(currentDirection, speed);
     }
 
-    public void accelerate(GridDirection direction, int speed) {
+   /*public void accelerate(GridDirection direction, int speed) {
 
         // if the space bar is pressed down the player speed increases
 
@@ -71,7 +71,7 @@ public class Player implements KeyboardHandler {
             }
         }
 
-    }
+    }*/
 
 
     @Override
@@ -85,14 +85,16 @@ public class Player implements KeyboardHandler {
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_LEFT:
                 currentDirection = GridDirection.LEFT;
+                playerPosition.positionMove(currentDirection);
                 break;
             case KeyboardEvent.KEY_RIGHT:
                 currentDirection = GridDirection.RIGHT;
+                playerPosition.positionMove(currentDirection);
                 break;
         }
 
         if (speed == 0) {
-            accelerate(currentDirection, 1);
+            //accelerate(currentDirection, 1);
         }
 
     }

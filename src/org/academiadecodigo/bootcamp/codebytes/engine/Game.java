@@ -4,9 +4,9 @@ import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.media.Backgrounds;
 import org.academiadecodigo.bootcamp.codebytes.media.sound.Sound;
 import org.academiadecodigo.bootcamp.codebytes.menus.Menu;
-import org.academiadecodigo.bootcamp.codebytes.objectfactory.GameObjectType;
-import org.academiadecodigo.bootcamp.codebytes.objects.figures.Player;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectFactory;
 import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -14,6 +14,7 @@ public class Game {
 
     private Menu.MenuRepresentation menu;
     private Player player;
+    private Grid grid;
     private GameObjectType gameObjectsType;
     private int points;
     private int lifes;
@@ -24,7 +25,7 @@ public class Game {
     }
 
     public void init(){
-        Grid grid = new Grid();
+        grid = new Grid();
         grid.initialization();
         Menu.MenuRepresentation menu = new Menu.MenuRepresentation();
         try {
@@ -44,6 +45,11 @@ public class Game {
         gameSound = new Sound("resources/sounds/GameMusic.wav");
         gameSound.setLoop(10);
         gameSound.play(true);
+
+
+        player = new Player(grid);
+
+        //GameObject go = GameObjectFactory.createNewGameObject(grid);
 
     }
 

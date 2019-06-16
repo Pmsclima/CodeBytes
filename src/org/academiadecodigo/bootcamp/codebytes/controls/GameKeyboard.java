@@ -8,7 +8,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-public class GameKeyboard implements KeyboardHandler {
+public class GameKeyboard  {
 
 
     

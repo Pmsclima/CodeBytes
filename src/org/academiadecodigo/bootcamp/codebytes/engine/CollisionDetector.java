@@ -57,10 +57,7 @@ public class CollisionDetector {
 
         }
 
-            }
+    }
 
-
-
-
-        }
+}
 

@@ -59,6 +59,7 @@ public class Menu {
              * E - exit game
              * B - back to main menu
              */
+
             Keyboard menuKeyboard = new Keyboard(this);
             KeyboardEvent start = new KeyboardEvent();
 

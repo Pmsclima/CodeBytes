@@ -4,7 +4,7 @@ import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
 import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
 import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Special;
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
-import org.academiadecodigo.simplegraphics.graphics.Canvas;
+
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -38,9 +38,7 @@ public class CollisionDetector {
 
     public void checkCollision() {
 
-        for (GameObject gameObject : this.gameObjects) {
-
-
+        for (GameObject gameObject : gameObjects) {
 
             if (this.player.getPlayerPosition().equals1(gameObject.getPosition())) {
                 gameObject.collided();

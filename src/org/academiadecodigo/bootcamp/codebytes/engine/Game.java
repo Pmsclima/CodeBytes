@@ -48,41 +48,38 @@ public class Game {
             int random = (int) (Math.random() * Backgrounds.values().length);
             gameBackGround = new Picture(Grid.PADDING, Grid.PADDING, Backgrounds.values()[random].getPath());
             gameBackGround.draw();
+
             gameOn = true;
             gameSound = new Sound("/Resources/sounds/GameMusic.wav");
             gameSound.play(true);
             gameSound.setLoop(10);
+
             points = 0;
 
             player = new Player(grid);
-            collisionDetector = new CollisionDetector(gameObjects, player);
-
-
             gameObjects = new ArrayList<>();
-            GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
-            gameObjects.add(gameObject);
 
-
+            System.out.println(gameObjects);
 
 
         }
-        if (gameOn) {
-            return;
-        }
 
-            while (lifes > 0) {
 
+            while (lifes >= 0) {
 
                 GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
                 gameObjects.add(gameObject);
 
-
+                System.out.println(gameObjects.toString());
+                System.out.println("BATATA");
                 moveAllObjects();
+                System.out.println("sout after move");
                 collisionDetector.checkCollision();
+                System.out.println("sout after collision");
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    e.getMessage();
                 }
 
             }

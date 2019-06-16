@@ -24,6 +24,7 @@ public class Game {
     private static int lifes =3;
     Picture gameBackGround;
     Sound gameSound;
+    private boolean gameOn;
 
     public Game() {
     }
@@ -43,38 +44,38 @@ public class Game {
      * Getting a random background for gameplay each time game is started.
      */
     public void start(){
-        int random = (int) (Math.random() * Backgrounds.values().length);
-        gameBackGround = new Picture(Grid.PADDING,Grid.PADDING, Backgrounds.values()[random].getPath());
-        gameBackGround.draw();
+        if (!gameOn) {
+            int random = (int) (Math.random() * Backgrounds.values().length);
+            gameBackGround = new Picture(Grid.PADDING, Grid.PADDING, Backgrounds.values()[random].getPath());
+            gameBackGround.draw();
+            gameOn = true;
+            gameSound = new Sound("/Resources/sounds/GameMusic.wav");
+            gameSound.play(true);
+            points = 0;
 
-        gameSound = new Sound("/Resources/sounds/GameMusic.wav");
-        gameSound.play(true);
-        points = 0;
+            player = new Player(grid);
+            collisionDetector = new CollisionDetector(gameObjects, player);
+        }
+            while (lifes > 0) {
+
+                GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
+                gameObjects = new ArrayList<>();
+                gameObjects.add(gameObject);
 
 
-        player = new Player(grid);
-        collisionDetector = new CollisionDetector(gameObjects, player);
+                moveAllObjects();
+                collisionDetector.checkCollision();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-        while (lifes > 0) {
-
-            GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
-            gameObjects = new ArrayList<>();
-            gameObjects.add(gameObject);
-
-
-            moveAllObjects();
-            collisionDetector.checkCollision();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
 
-        }
+            gameOver();
 
-        gameOver();
-
-        //GameObject go = GameObjectFactory.createNewGameObject(grid);
+            //GameObject go = GameObjectFactory.createNewGameObject(grid);
 
     }
 

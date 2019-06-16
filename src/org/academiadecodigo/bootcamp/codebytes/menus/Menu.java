@@ -28,12 +28,12 @@ public class Menu {
 
         public MenuRepresentation() {
 
-            this.menuPresentScreen = new Picture(0, 0, "Resources/Menu/Team 4.jpg"); // first screen after launch todo: start mgmt music;
-            this.menuMain = new Picture(0, 0, "Resources/Menu/Menu.jpg"); //button menu
-            this.menuLoading = new Picture(0,0, "Resources/Menu/Start.jpg"); // logo screen
-            this.instructions = new Picture(0,0, "Resources/Menu/Instructions.jpg"); // instructions screen
-            this.credits = new Picture(0,0, "Resources/menu/credits.png"); // credits screen; todo: need path & img on resources
-            loading = new Sound("/resources/sounds/MGMT_Kids.wav");
+            this.menuPresentScreen = new Picture(0, 0, "Resources/Menu/Team 4.jpg"); // first screen after game initialization;
+            this.menuMain = new Picture(0, 0, "Resources/Menu/Menu.jpg"); //button menu;
+            this.menuLoading = new Picture(0,0, "Resources/Menu/Start.jpg"); // logo screen;
+            this.instructions = new Picture(0,0, "Resources/Menu/Instructions.jpg"); // instructions screen;
+            this.credits = new Picture(0,0, "Resources/menu/credits.png"); // credits screen;
+            loading = new Sound("/resources/sounds/MGMT_Kids.wav"); // sound loaded when game is initialized;
 
         }
 

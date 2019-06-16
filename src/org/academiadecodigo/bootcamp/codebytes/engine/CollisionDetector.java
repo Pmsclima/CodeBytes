@@ -4,7 +4,9 @@ import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
 import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
 import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Special;
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
+import org.academiadecodigo.simplegraphics.graphics.Canvas;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 

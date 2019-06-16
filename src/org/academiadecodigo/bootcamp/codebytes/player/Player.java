@@ -1,12 +1,14 @@
 package org.academiadecodigo.bootcamp.codebytes.player;
 
+import org.academiadecodigo.bootcamp.codebytes.controls.GameKeyboard;
+import org.academiadecodigo.bootcamp.codebytes.grid.GridDirection;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-public class Player extends KeyboardHandler {
+public class Player implements KeyboardHandler {
 
 
     private int lives;
@@ -17,7 +19,7 @@ public class Player extends KeyboardHandler {
 
     public Player(GridPosition position) {
         this.lives = 3;
-        keyboard = new Keyboard(this);
+        keyboard = new Keyboard();
         init();
     }
 

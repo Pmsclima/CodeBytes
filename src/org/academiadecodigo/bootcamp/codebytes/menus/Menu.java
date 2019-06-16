@@ -69,19 +69,5 @@ public class Menu {
             credits.delete();
 
         }
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
 }

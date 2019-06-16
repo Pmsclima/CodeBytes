@@ -38,11 +38,11 @@ public class CollisionDetector {
 
     public void checkCollision() {
 
-        for (GameObject gameObject : gameObjects) {
+        for (GameObject gameObject : this.gameObjects) {
 
 
 
-            if (player.getPlayerPosition().equals1(gameObject.getPosition())) {
+            if (this.player.getPlayerPosition().equals1(gameObject.getPosition())) {
                 gameObject.collided();
                 gameObject.getPosition().collision();
 

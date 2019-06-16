@@ -13,7 +13,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Menu {
 
 
-
     public static class MenuRepresentation implements KeyboardHandler {
 
 
@@ -89,6 +88,7 @@ public class Menu {
             menuKeyboard.addEventListener(instructions);
             menuKeyboard.addEventListener(exit);
             menuKeyboard.addEventListener(back);
+
 
 
         }

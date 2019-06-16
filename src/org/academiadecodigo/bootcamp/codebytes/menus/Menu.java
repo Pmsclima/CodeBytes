@@ -32,7 +32,7 @@ public class Menu {
             this.menuMain = new Picture(0, 0, "Resources/Menu/Menu.jpg"); //button menu
             this.menuLoading = new Picture(0,0, "Resources/Menu/Start.jpg"); // logo screen
             this.instructions = new Picture(0,0, "Resources/Menu/Instructions.jpg"); // instructions screen
-            this.credits = new Picture(0,0, ""); // credits screen; todo: need path & img on resources
+            this.credits = new Picture(0,0, "Resources/menu/credits.png"); // credits screen; todo: need path & img on resources
             loading = new Sound("/resources/sounds/MGMT_Kids.wav");
 
         }
@@ -59,7 +59,7 @@ public class Menu {
              * E - exit game
              * B - back to main menu
              */
-            Keyboard menuKeyboard = new Keyboard((KeyboardHandler) this);
+            Keyboard menuKeyboard = new Keyboard(this);
             KeyboardEvent start = new KeyboardEvent();
 
             start.setKey(KeyboardEvent.KEY_S);
@@ -114,8 +114,8 @@ public class Menu {
 
         public void menuBack() {
             mainMenu();
-            instructions.delete();
-            credits.delete();
+            instructionsDelete();
+            creditsDelete();
 
         }
 

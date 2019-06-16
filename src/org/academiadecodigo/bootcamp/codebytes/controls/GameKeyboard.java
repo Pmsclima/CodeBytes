@@ -11,8 +11,11 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 public class GameKeyboard implements KeyboardHandler {
 
 
-    
-
+/**
+ * TODO
+ *  VERIFICAR:
+ *  JA QUE KEYBOARD ESTA FEITO EM PLAYER E MENU, FAZ SENTIDO EXISTIR ESTA CLASS?!
+ */
 
 
 

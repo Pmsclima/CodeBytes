@@ -43,6 +43,7 @@ public class Game {
     /**
      * Getting a random background for gameplay each time game is started.
      */
+    
     public void start(){
         if (!gameOn) {
             int random = (int) (Math.random() * Backgrounds.values().length);

@@ -40,13 +40,11 @@ public class Game {
      */
     public void start(){
         int random = (int) (Math.random() * Backgrounds.values().length);
-        gameBackGround = new Picture(0,0, Backgrounds.values()[random].getPath());
+        gameBackGround = new Picture(Grid.PADDING,Grid.PADDING, Backgrounds.values()[random].getPath());
         gameBackGround.draw();
         gameSound = new Sound("resources/sounds/GameMusic.wav");
         gameSound.setLoop(10);
         gameSound.play(true);
-
-
         player = new Player(grid);
 
         //GameObject go = GameObjectFactory.createNewGameObject(grid);

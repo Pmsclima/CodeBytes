@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.codebytes.menus;
 
 import org.academiadecodigo.bootcamp.codebytes.engine.Game;
+import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.media.sound.Sound;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
@@ -28,11 +29,11 @@ public class Menu {
 
         public MenuRepresentation() {
 
-            this.menuPresentScreen = new Picture(0, 0, "Resources/Menu/Team 4.jpg"); // first screen after game initialization;
-            this.menuMain = new Picture(0, 0, "Resources/Menu/Menu.jpg"); //button menu;
-            this.menuLoading = new Picture(0,0, "Resources/Menu/Start.jpg"); // logo screen;
-            this.instructions = new Picture(0,0, "Resources/Menu/Instructions.jpg"); // instructions screen;
-            this.credits = new Picture(0,0, "Resources/menu/credits.png"); // credits screen;
+            this.menuPresentScreen = new Picture(Grid.PADDING,Grid.PADDING, "Resources/Menu/Team 4.jpg"); // first screen after game initialization;
+            this.menuMain = new Picture(Grid.PADDING, Grid.PADDING, "Resources/Menu/Menu.jpg"); //button menu;
+            this.menuLoading = new Picture(Grid.PADDING,Grid.PADDING, "Resources/Menu/Start.jpg"); // logo screen;
+            this.instructions = new Picture(Grid.PADDING,Grid.PADDING, "Resources/Menu/Instructions.jpg"); // instructions screen;
+            this.credits = new Picture(Grid.PADDING,Grid.PADDING, "Resources/menu/credits.png"); // credits screen;
             loading = new Sound("/resources/sounds/MGMT_Kids.wav"); // sound loaded when game is initialized;
 
         }
@@ -116,7 +117,6 @@ public class Menu {
             mainMenu();
             instructionsDelete();
             creditsDelete();
-
         }
 
 

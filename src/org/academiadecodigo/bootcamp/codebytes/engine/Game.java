@@ -1,13 +1,11 @@
 package org.academiadecodigo.bootcamp.codebytes.engine;
 
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
-import org.academiadecodigo.bootcamp.codebytes.grid.GridDirection;
 import org.academiadecodigo.bootcamp.codebytes.media.Backgrounds;
 import org.academiadecodigo.bootcamp.codebytes.media.sound.Sound;
 import org.academiadecodigo.bootcamp.codebytes.menus.Menu;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectFactory;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
+import org.academiadecodigo.bootcamp.codebytes.objects.objectfactory.GameObjectFactory;
+import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.GameObject;
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -61,23 +59,17 @@ public class Game {
             gameObjects = new ArrayList<>();
             GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
             gameObjects.add(gameObject);
-
-
-
-
-        }
-        if (gameOn) {
-            return;
         }
 
             while (lifes > 0) {
 
-
                 GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
                 gameObjects.add(gameObject);
 
-
                 moveAllObjects();
+
+                System.out.println("BATATA");
+
                 collisionDetector.checkCollision();
                 try {
                     Thread.sleep(1000);
@@ -95,6 +87,7 @@ public class Game {
 
     private void moveAllObjects () {
         for (GameObject gameObject : gameObjects) {
+
             gameObject.move(1);
         }
     }

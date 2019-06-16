@@ -1,10 +1,10 @@
-package org.academiadecodigo.bootcamp.codebytes.objects.object_types;
+package org.academiadecodigo.bootcamp.codebytes.objects.objecttypes;
 
 import org.academiadecodigo.bootcamp.codebytes.engine.CollisionDetector;
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridDirection;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
+import org.academiadecodigo.bootcamp.codebytes.objects.objectfactory.GameObjectType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class GameObject {

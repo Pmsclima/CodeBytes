@@ -1,4 +1,4 @@
-package org.academiadecodigo.bootcamp.codebytes.objects.object_factory;
+package org.academiadecodigo.bootcamp.codebytes.objects.objectfactory;
 
 public enum GameObjectType {
 

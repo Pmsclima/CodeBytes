@@ -59,5 +59,11 @@ public class GridPosition {
 
     }
 
+    public int getCol() {
+        return col;
+    }
 
+    public int getRow() {
+        return row;
+    }
 }

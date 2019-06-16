@@ -1,8 +1,9 @@
 package org.academiadecodigo.bootcamp.codebytes.player;
 
-import org.academiadecodigo.bootcamp.codebytes.controls.GameKeyboard;
+import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridDirection;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
+import org.academiadecodigo.bootcamp.codebytes.media.Pictures;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -12,14 +13,18 @@ public class Player implements KeyboardHandler {
 
 
     private int lives;
+    private GridPosition playerPosition;
+    private Grid grid;
     private final int MAX_SPEED = 3;
     private Keyboard keyboard;
     private int speed = 0;
     protected GridDirection currentDirection;
 
     public Player(GridPosition position) {
+        playerPosition = new GridPosition(((int) (Math.random() * 24), 14, grid, Pictures ))
+        this.currentDirection = GridDirection.DOWN;
         this.lives = 3;
-        keyboard = new Keyboard();
+        keyboard = new Keyboard(this);
         init();
     }
 
@@ -47,16 +52,19 @@ public class Player implements KeyboardHandler {
         keyboard.addEventListener(slower);
     }
 
+    public Player createPlayer() {
+        return new Player(new GridPosition(((int) (Math.random() * 24), 14, Pictures.);
+    }
+
     public void move() {
         accelerate(currentDirection, speed);
     }
 
     public void accelerate(GridDirection direction, int speed) {
 
-        this.currentDirection = direction;
+        // if the space bar is pressed down the player speed increases
 
-        for (int i = 0; i < speed; i++) {
-            getPos().moveInDirection(direction, 1);
+        for (int i = 0; i < speed; i++) { ;
             if (collisionDetector.isUnSafe(getPos())) {
                 crash();
                 break;

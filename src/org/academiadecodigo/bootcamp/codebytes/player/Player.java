@@ -21,9 +21,9 @@ public class Player implements KeyboardHandler {
     protected GridDirection currentDirection;
 
     public Player(Grid grid) {
-        playerPosition = new GridPosition(((int) (Math.random() * 24)), 12, grid, "\\Resources\\Logos\\Player.png" );
+        playerPosition = new GridPosition(((int) (Math.random() * 24)), 12, grid, "Resources/Logos/Player.png" );
         //this.currentDirection = GridDirection.DOWN;
-        this.lives = 3;
+        lives = 3;
         keyboard = new Keyboard(this);
         init();
     }
@@ -34,31 +34,31 @@ public class Player implements KeyboardHandler {
         left.setKey(KeyboardEvent.KEY_LEFT);
         left.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
-        KeyboardEvent down = new KeyboardEvent();
-        down.setKey(KeyboardEvent.KEY_DOWN);
-        down.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        KeyboardEvent right = new KeyboardEvent();
+        right.setKey(KeyboardEvent.KEY_RIGHT);
+        right.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
-        KeyboardEvent faster = new KeyboardEvent();
+        /*KeyboardEvent faster = new KeyboardEvent();
         faster.setKey(KeyboardEvent.KEY_SPACE);
         faster.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
         KeyboardEvent slower = new KeyboardEvent();
         slower.setKey(KeyboardEvent.KEY_SPACE);
-        slower.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        slower.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);*/
 
         keyboard.addEventListener(left);
-        keyboard.addEventListener(down);
-        keyboard.addEventListener(faster);
-        keyboard.addEventListener(slower);
+        keyboard.addEventListener(right);
+        //keyboard.addEventListener(faster);
+        //keyboard.addEventListener(slower);
     }
 
     /*public Player createPlayer() {
         return new Player();
     }*/
 
-    public void move() {
+    //public void move() {
         //accelerate(currentDirection, speed);
-    }
+    //}
 
    /*public void accelerate(GridDirection direction, int speed) {
 
@@ -73,29 +73,32 @@ public class Player implements KeyboardHandler {
 
     }*/
 
+    public GridPosition getPlayerPosition() {
+        return playerPosition;
+    }
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
-        if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
+        /*if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
             speed = MAX_SPEED;
             return;
-        }
+        }*/
 
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_LEFT:
                 currentDirection = GridDirection.LEFT;
-                playerPosition.positionMove(currentDirection);
+                playerPosition.positionMovePlayer(currentDirection);
                 break;
             case KeyboardEvent.KEY_RIGHT:
                 currentDirection = GridDirection.RIGHT;
-                playerPosition.positionMove(currentDirection);
+                playerPosition.positionMovePlayer(currentDirection);
                 break;
         }
 
-        if (speed == 0) {
+        /*if (speed == 0) {
             //accelerate(currentDirection, 1);
-        }
+        }*/
 
     }
 

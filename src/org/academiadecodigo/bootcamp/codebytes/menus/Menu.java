@@ -26,7 +26,7 @@ public class Menu {
         private Game game;
 
 
-        public MenuRepresentation() {
+        public MenuRepresentation(Game game) {
 
             this.menuPresentScreen = new Picture(0, 0, "Resources/Menu/Team 4.jpg"); // first screen after game initialization;
             this.menuMain = new Picture(0, 0, "Resources/Menu/Menu.jpg"); //button menu;
@@ -34,7 +34,7 @@ public class Menu {
             this.instructions = new Picture(0,0, "Resources/Menu/Instructions.jpg"); // instructions screen;
             this.credits = new Picture(0,0, "Resources/menu/credits.png"); // credits screen;
             loading = new Sound("/resources/sounds/MGMT_Kids.wav"); // sound loaded when game is initialized;
-
+            this.game = game;
         }
 
 
@@ -43,10 +43,10 @@ public class Menu {
 
             menuPresentScreen.draw();
             loading.play(false);
-            Thread.sleep(7000);
+            Thread.sleep(700);
             menuLoading.draw();
             menuPresentScreen.delete();
-            Thread.sleep(14500);
+            Thread.sleep(1450);
             menuMain.draw();
             menuPresentScreen.delete();
 
@@ -64,6 +64,7 @@ public class Menu {
 
             start.setKey(KeyboardEvent.KEY_S);
             start.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
 
             KeyboardEvent credits = new KeyboardEvent();
             credits.setKey(KeyboardEvent.KEY_C);
@@ -124,6 +125,7 @@ public class Menu {
 
             switch (keyboardEvent.getKey()) {
                 case KeyboardEvent.KEY_S:
+                    loading.stop();
                     game.start();
                     break;
 

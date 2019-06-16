@@ -11,14 +11,17 @@ import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.util.ArrayList;
+
 public class Game {
 
     private Menu.MenuRepresentation menu;
+    private CollisionDetector collisionDetector;
     private Player player;
     private Grid grid;
-    private GameObjectType gameObjectsType;
-    private int points;
-    private int lifes;
+    private ArrayList <GameObject> gameObjects;
+    private static int points;
+    private static int lifes =3;
     Picture gameBackGround;
     Sound gameSound;
 
@@ -28,7 +31,7 @@ public class Game {
     public void init(){
         grid = new Grid();
         grid.initialization();
-        Menu.MenuRepresentation menu = new Menu.MenuRepresentation();
+        Menu.MenuRepresentation menu = new Menu.MenuRepresentation(this);
         try {
             menu.init();
         } catch (InterruptedException e) {
@@ -41,27 +44,44 @@ public class Game {
      */
     public void start(){
         int random = (int) (Math.random() * Backgrounds.values().length);
-        gameBackGround = new Picture(0,0, Backgrounds.values()[random].getPath());
+        gameBackGround = new Picture(Grid.PADDING,Grid.PADDING, Backgrounds.values()[random].getPath());
         gameBackGround.draw();
-        gameSound = new Sound("resources/sounds/GameMusic.wav");
-        gameSound.setLoop(10);
+
+        gameSound = new Sound("/Resources/sounds/GameMusic.wav");
         gameSound.play(true);
+        points = 0;
 
 
         player = new Player(grid);
+        collisionDetector = new CollisionDetector(gameObjects, player);
 
-        while (lifes != 0) {
+        while (lifes > 0) {
 
             GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
-            gameObject.move(GridDirection.DOWN, 1);
-            // check collision??
-            // delay?
+            gameObjects = new ArrayList<>();
+            gameObjects.add(gameObject);
+
+
+            moveAllObjects();
+            collisionDetector.checkCollision();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
 
         gameOver();
 
         //GameObject go = GameObjectFactory.createNewGameObject(grid);
 
+    }
+
+    private void moveAllObjects () {
+        for (GameObject gameObject : gameObjects) {
+            gameObject.move(1);
+        }
     }
 
     // TODO: 16/06/2019 - Need to implement points gathered and reset.
@@ -74,16 +94,28 @@ public class Game {
         } catch (InterruptedException e) {
             e.getMessage();
         }
-        gameSound.stop();
+
         menu.mainMenu();
         gameOver.delete();
     }
 
-    public int getPoints() {
+    public static int getPoints() {
         return points;
     }
 
-    public int getLifes() {
+    public static int getLifes() {
         return lifes;
+    }
+
+    public static void increasePoints (int add) {
+        points += add;
+    }
+
+    public static void increaseLife () {
+        lifes ++;
+    }
+
+    public static void decreaseLife () {
+        lifes--;
     }
 }

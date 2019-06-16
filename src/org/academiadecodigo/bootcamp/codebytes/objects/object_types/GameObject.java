@@ -18,6 +18,7 @@ public abstract class GameObject {
     private int objectPoints;
     protected CollisionDetector collisionDetector;
     private Picture picture;
+    private static int speed;
 
     public GameObject(GridPosition position, GameObjectType gameObjectType) {
         this.position = position;
@@ -26,21 +27,14 @@ public abstract class GameObject {
 
     }
 
-    public void move(GridDirection direction, int speed) {
+    public void move(int speed) {
 
         if (isCollided()) {
             return;
         }
 
-        this.currentDirection = direction;
+        position.positionMove(this);
 
-        for (int i = 0; i < speed; i++) {
-            this.position.positionMove(direction);
-            if (collisionDetector.isUnSafe(position)) {
-                collided();
-                break;
-            }
-        }
     }
 
     //abstract public void increasedMovementSpeed();
@@ -102,8 +96,16 @@ public abstract class GameObject {
         return position;
     }
 
+    public int getObjectPoints() {
+        return objectPoints;
+    }
+
     public void setObjectPoints(int objectPoints) {
         this.objectPoints = objectPoints;
+    }
+
+    public CollisionDetector getCollisionDetector() {
+        return collisionDetector;
     }
 
     public void setCollisionDetector(CollisionDetector collisionDetector){
@@ -112,6 +114,10 @@ public abstract class GameObject {
 
     public boolean isCollided() {
         return collided;
+    }
+
+    public static void increaseSpeed () {
+         speed++;
     }
 
     @Override

@@ -1,5 +1,9 @@
 package org.academiadecodigo.bootcamp.codebytes.grid;
 
+import org.academiadecodigo.bootcamp.codebytes.engine.Game;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Special;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -34,20 +38,31 @@ public class GridPosition {
         picture.delete();
     }
 
-    public void positionMove (GridDirection direction) {
+    public void positionMove (GameObject gameObject) {
 
+        if (row + 1 <= grid.getRows()) {
+            row++;
+            picture.translate(0, grid.getCellSize());
+        }
+
+        if (row + 1 > grid.getRows()) {
+            if (gameObject instanceof Special) {
+                collision();
+                return;
+            }
+
+            Game.decreaseLife();
+        }
+
+    }
+
+
+    public void positionMovePlayer(GridDirection direction) {
         switch (direction) {
-            case DOWN:
-                if (row + 1 <= grid.getRows()){
-                    row++;
-                    picture.translate(0, grid.getCellSize());
-                }
-                break;
-
             case LEFT:
                 if (col - 1 >= 0) {
                     col--;
-                    picture.translate(grid.getCellSize(), 0);
+                    picture.translate(-grid.getCellSize(), 0);
                 }
                 break;
             case RIGHT:
@@ -66,5 +81,11 @@ public class GridPosition {
 
     public int getRow() {
         return row;
+    }
+
+
+    public boolean equals1(GridPosition position1) {
+        return row == position1.getRow() && col == position1.getCol();
+
     }
 }

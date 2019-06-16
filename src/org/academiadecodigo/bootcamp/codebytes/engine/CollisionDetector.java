@@ -2,22 +2,26 @@ package org.academiadecodigo.bootcamp.codebytes.engine;
 
 import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
 import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Special;
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
+
+import java.util.ArrayList;
 
 public class CollisionDetector {
 
     private Player player;
-    private GameObject[] gameObjects;
+    private ArrayList<GameObject> gameObjects;
 
-    public CollisionDetector(GameObject[] gameObjects) {
+    public CollisionDetector(ArrayList<GameObject> gameObjects, Player player) {
         this.gameObjects = gameObjects;
+        this.player = player;
     }
 
     // if object hits the player
 
     //if object hits the ground
 
-    public boolean isUnSafe(GridPosition position) {
+   /* public boolean isUnSafe(GridPosition position) {
 
         for (GameObject object : gameObjects) {
 
@@ -28,16 +32,27 @@ public class CollisionDetector {
         }
 
         return false;
-    }
+    }*/
 
-    public void checkGameObjects() {
+    public void checkCollision() {
 
         for (GameObject gameObject : gameObjects) {
 
-            if (ic.getPos().equals(car.getPos())) {
-                ic.crash();
-                car.crash();
+
+
+            if (player.getPlayerPosition().equals1(gameObject.getPosition())) {
+                gameObject.collided();
+                gameObject.getPosition().collision();
+
+                if (gameObject instanceof Special) {
+                    Special gameOb = (Special) gameObject;
+                    gameOb.specialFeature();
+                    return;
+                }
+
+                Game.increasePoints(gameObject.getObjectPoints());
             }
+
         }
 
     }

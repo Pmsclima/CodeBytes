@@ -51,11 +51,16 @@ public class Game {
             gameOn = true;
             gameSound = new Sound("/Resources/sounds/GameMusic.wav");
             gameSound.play(true);
+            gameSound.setLoop(3);
             points = 0;
 
             player = new Player(grid);
             collisionDetector = new CollisionDetector(gameObjects, player);
         }
+        if (gameOn) {
+            return;
+        }
+
             while (lifes > 0) {
 
                 GameObject gameObject = GameObjectFactory.createNewGameObject(grid);

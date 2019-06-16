@@ -11,5 +11,17 @@ public class Main {
 
        game.init();
 
+       while (!game.isGameOn()) {
+           try {
+               Thread.sleep(1000);
+           } catch (InterruptedException e) {
+               e.printStackTrace();
+           }
+       }
+       game.start();
+       game.setGameOn();
+
+
+
     }
 }

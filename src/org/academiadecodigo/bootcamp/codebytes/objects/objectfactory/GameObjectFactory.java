@@ -1,13 +1,15 @@
-package org.academiadecodigo.bootcamp.codebytes.objects.objectfactory;
+package org.academiadecodigo.bootcamp.codebytes.objects.object_factory;
 
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
-import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.GameObject;
-import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.normal.*;
-import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.special.Alexandra;
-import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.special.Faustino;
-import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.special.Mariana;
-import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.special.Seringas;
+import org.academiadecodigo.bootcamp.codebytes.media.Pictures;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.normal.*;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Alexandra;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Faustino;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Mariana;
+import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Seringas;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameObjectFactory {
 
@@ -23,7 +25,7 @@ public class GameObjectFactory {
         switch (gameObjectType) {
 
             case ALEXANDRA:
-                gameObject = new Alexandra(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/logos/Alexandra.png"));
+                gameObject = new Alexandra(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Alexandra.png"));
                 break;
 
             case EMACS:

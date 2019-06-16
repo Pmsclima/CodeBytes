@@ -120,13 +120,17 @@ public class Menu {
             creditsDelete();
         }
 
+        public void stopSound() {
+            loading.stop();
+        }
+
 
         public void keyPressed(KeyboardEvent keyboardEvent) {
 
             switch (keyboardEvent.getKey()) {
                 case KeyboardEvent.KEY_S:
                     loading.stop();
-                    game.start();
+                    game.setGameOn();
                     break;
 
                 case KeyboardEvent.KEY_C:

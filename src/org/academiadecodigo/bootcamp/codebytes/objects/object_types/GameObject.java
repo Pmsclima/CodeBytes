@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp.codebytes.objects.object_types;
 
 import org.academiadecodigo.bootcamp.codebytes.engine.CollisionDetector;
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
+import org.academiadecodigo.bootcamp.codebytes.grid.GridDirection;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
 import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
 
@@ -27,18 +28,12 @@ public abstract class GameObject {
             return;
         }
 
-        GridDirection newDirection = direction;
+        this.currentDirection = direction;
 
-
-        if (isHittingWall()) {
-            newDirection = direction.oppositeDirection();
-        }
-
-        this.currentDirection = newDirection;
         for (int i = 0; i < speed; i++) {
-            getPos().moveInDirection(newDirection, 1);
-            if (collisionDetector.isUnSafe(getPos())) {
-                crash();
+            this.position.positionMove(direction);
+            if (collisionDetector.isUnSafe(position)) {
+                collided();
                 break;
             }
         }
@@ -71,20 +66,24 @@ public abstract class GameObject {
     public boolean isHittingWall() {
 
         switch (currentDirection) {
+
             case LEFT:
-                if (getPos().getCol() == 0) {
+                if (position.getCol() == 0) {
                     return true;
                 }
                 break;
+
             case RIGHT:
-                if (getPos().getCol() == grid.getCols() - 1) {
+                if (position.getCol() == grid.getCols() - 1) {
                     return true;
                 }
                 break;
+
             case DOWN:
-                if (getPos().getRow() == grid.getRows() - 1) {
+                if (position.getRow() == grid.getRows() - 1) {
                     return true;
                 }
+                break;
         }
 
         return false;

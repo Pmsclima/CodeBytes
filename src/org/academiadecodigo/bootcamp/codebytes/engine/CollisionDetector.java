@@ -21,7 +21,7 @@ public class CollisionDetector {
 
         for (GameObject object : gameObjects) {
 
-            if (object.getPos()!= pos && object.getPos().equals(pos)) {
+            if (object.getPosition()!= position && object.getPosition().equals(position)) {
                 return true;
             }
 
@@ -34,13 +34,12 @@ public class CollisionDetector {
 
         for (GameObject gameObject : gameObjects) {
 
-            if (ic.getPos().equals(car.getPos())) {
-                ic.crash();
-                car.crash();
+            if (gameObject.getPosition().equals(player.getPlayerPosition())) {
+                gameObject.collided();
+                player.loseLife();
             }
+
+            if(gameObject.getPosition().equals())
         }
-
     }
-
-
 }

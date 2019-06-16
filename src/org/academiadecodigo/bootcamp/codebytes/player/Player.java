@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.codebytes.player;
 
+import org.academiadecodigo.bootcamp.codebytes.engine.CollisionDetector;
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridDirection;
 import org.academiadecodigo.bootcamp.codebytes.grid.GridPosition;
@@ -13,18 +14,20 @@ public class Player implements KeyboardHandler {
 
 
     private int lives;
+    private int score;
     private GridPosition playerPosition;
     private Grid grid;
+    protected CollisionDetector collisionDetector;
     private final int MAX_SPEED = 3;
     private Keyboard keyboard;
     private int speed = 0;
     protected GridDirection currentDirection;
 
     public Player(GridPosition position) {
-        playerPosition = new GridPosition(((int) (Math.random() * 24), 14, grid, Pictures ))
+        this.playerPosition = new GridPosition(((int) (Math.random() * 24), 14, grid, Pictures ))
         this.currentDirection = GridDirection.DOWN;
         this.lives = 3;
-        keyboard = new Keyboard(this);
+        this.keyboard = new Keyboard(this);
         init();
     }
 
@@ -60,17 +63,30 @@ public class Player implements KeyboardHandler {
         accelerate(currentDirection, speed);
     }
 
+
     public void accelerate(GridDirection direction, int speed) {
 
         // if the space bar is pressed down the player speed increases
 
+        getPlayerPosition().positionMove(direction);
+
         for (int i = 0; i < speed; i++) { ;
-            if (collisionDetector.isUnSafe(getPos())) {
-                crash();
+            if (collisionDetector.isUnSafe(getPlayerPosition())) {
+                //addPoints();
                 break;
             }
         }
 
+    }
+
+
+    public void loseLife() {
+        this.lives-=1;
+    }
+
+
+    public void addPoints(int points) {
+        this.score += points;
     }
 
 
@@ -97,13 +113,18 @@ public class Player implements KeyboardHandler {
 
     }
 
+
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
             speed = 0;
         }
+    }
 
+
+    public GridPosition getPlayerPosition() {
+        return playerPosition;
     }
 
 }

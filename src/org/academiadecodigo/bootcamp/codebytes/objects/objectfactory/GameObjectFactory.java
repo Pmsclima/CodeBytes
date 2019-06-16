@@ -23,7 +23,7 @@ public class GameObjectFactory {
         switch (gameObjectType) {
 
             case ALEXANDRA:
-                gameObject = new Alexandra(new GridPosition(((int) (Math.random()*24)), 0, grid, "\\Resources\\Logos\\Alexandra.png"));
+                gameObject = new Alexandra(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/logos/Alexandra.png"));
                 break;
 
             case EMACS:

@@ -25,6 +25,8 @@ public class Game {
     private boolean gameOn;
 
     public Game() {
+        gameObjects = new ArrayList<>();
+
     }
 
     public void init(){
@@ -36,6 +38,7 @@ public class Game {
         } catch (InterruptedException e) {
             e.getMessage();
         }
+
     }
 
     /**
@@ -51,22 +54,20 @@ public class Game {
             gameSound.play(true);
             gameSound.setLoop(10);
             points = 0;
-
             player = new Player(grid);
-            collisionDetector = new CollisionDetector(gameObjects, player);
 
-
-            gameObjects = new ArrayList<>();
-            GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
-            gameObjects.add(gameObject);
+            //GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
         }
 
+        collisionDetector = new CollisionDetector(gameObjects, player);
+        // TODO: 16/06/2019 check this loop
             while (lifes > 0) {
 
                 GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
                 gameObjects.add(gameObject);
 
                 moveAllObjects();
+
 
                 System.out.println("BATATA");
 

@@ -6,7 +6,7 @@ import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
 
 public class Alexandra extends GameObject {
 
-    public Alexandra(GridPosition position, GameObjectType gameObjectType) {
+    public Alexandra(GridPosition position) {
         super(position, GameObjectType.ALEXANDRA);
     }
 

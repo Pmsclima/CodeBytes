@@ -6,7 +6,7 @@ import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
 
 public class Mac extends GameObject {
 
-    public Mac(GridPosition position, GameObjectType gameObjectType) {
+    public Mac(GridPosition position) {
         super(position, GameObjectType.MAC);
         this.setObjectPoints(GameObjectType.MAC.getObjectPoints());
     }

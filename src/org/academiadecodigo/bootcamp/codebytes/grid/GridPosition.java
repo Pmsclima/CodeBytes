@@ -13,11 +13,12 @@ public class GridPosition {
     private Picture picture;
 
 
-    public GridPosition(int col, int row, Grid grid, Picture picture){
+    public GridPosition(int col, int row, Grid grid, String path){
         this.col = col;
         this.row = row;
         this.grid = grid;
-        this.picture = picture;
+        picture = new Picture(grid.columnToX(col), grid.rowToY(row), path);
+        picture.draw();
     }
 
     public Grid getGrid() {

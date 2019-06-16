@@ -40,12 +40,12 @@ public class GridPosition {
 
     public void positionMove (GameObject gameObject) {
 
-        if (row + 1 <= grid.getRows()) {
+        if (row + 1 <= grid.getRows()-1) {
             row++;
             picture.translate(0, grid.getCellSize());
         }
 
-        if (row + 1 > grid.getRows()) {
+        if (row + 1 > grid.getRows()-1) {
             if (gameObject instanceof Special) {
                 collision();
                 return;

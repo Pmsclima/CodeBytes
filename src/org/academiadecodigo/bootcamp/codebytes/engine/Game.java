@@ -27,14 +27,12 @@ public class Game {
     private boolean gameOn;
 
     public Game() {
-        this.gameOn = false;
     }
 
     public void init(){
         grid = new Grid();
         grid.initialization();
         Menu.MenuRepresentation menu = new Menu.MenuRepresentation(this);
-
         try {
             menu.init();
         } catch (InterruptedException e) {
@@ -45,20 +43,15 @@ public class Game {
     /**
      * Getting a random background for gameplay each time game is started.
      */
-
     public void start(){
-
 
             int random = (int) (Math.random() * Backgrounds.values().length);
             gameBackGround = new Picture(Grid.PADDING, Grid.PADDING, Backgrounds.values()[random].getPath());
             gameBackGround.draw();
-
             gameOn = true;
-
             gameSound = new Sound("/Resources/sounds/GameMusic.wav");
             gameSound.play(true);
             gameSound.setLoop(10);
-
             points = 0;
 
             player = new Player(grid);
@@ -69,12 +62,13 @@ public class Game {
 
             collisionDetector = new CollisionDetector(gameObjects, player);
 
+
             while (lifes > 0) {
 
 
-                gameObject = GameObjectFactory.createNewGameObject(grid);
-                gameObjects.add(gameObject);
 
+                gameObjects.add(gameObject);
+                gameObject = GameObjectFactory.createNewGameObject(grid);
 
                 moveAllObjects();
                 collisionDetector.checkCollision();
@@ -133,10 +127,11 @@ public class Game {
         lifes--;
     }
 
-    public boolean isGameOn() {
-        return gameOn;
-    }
     public void setGameOn() {
         gameOn = true;
+    }
+
+    public boolean isGameOn(){
+        return gameOn;
     }
 }

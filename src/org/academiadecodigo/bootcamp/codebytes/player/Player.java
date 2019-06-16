@@ -22,7 +22,6 @@ public class Player implements KeyboardHandler {
 
     public Player(Grid grid) {
         playerPosition = new GridPosition(((int) (Math.random() * 24)), 12, grid, "Resources/Logos/Player.png" );
-        //this.currentDirection = GridDirection.DOWN;
         lives = 3;
         keyboard = new Keyboard(this);
         init();

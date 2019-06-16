@@ -66,7 +66,7 @@ public class GridPosition {
                 }
                 break;
             case RIGHT:
-                if (col + 1 <= grid.getCols()) {
+                if (col + 1 < grid.getCols()) {
                     col++;
                     picture.translate(grid.getCellSize(), 0);
                 }

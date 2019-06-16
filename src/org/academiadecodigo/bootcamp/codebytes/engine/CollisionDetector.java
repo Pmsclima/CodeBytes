@@ -6,6 +6,7 @@ import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Spec
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CollisionDetector {
 
@@ -15,6 +16,7 @@ public class CollisionDetector {
     public CollisionDetector(ArrayList<GameObject> gameObjects, Player player) {
         this.gameObjects = gameObjects;
         this.player = player;
+
     }
 
     // if object hits the player
@@ -36,8 +38,10 @@ public class CollisionDetector {
 
     public void checkCollision() {
 
-        for (GameObject gameObject : gameObjects) {
 
+        Iterable<GameObject> iterable = gameObjects;
+
+        for (GameObject gameObject : iterable) {
 
 
             if (player.getPlayerPosition().equals1(gameObject.getPosition())) {
@@ -55,7 +59,10 @@ public class CollisionDetector {
 
         }
 
-       }
+            }
 
 
-}
+
+
+        }
+

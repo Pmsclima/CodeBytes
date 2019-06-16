@@ -27,12 +27,14 @@ public class Game {
     private boolean gameOn;
 
     public Game() {
+        this.gameOn = false;
     }
 
     public void init(){
         grid = new Grid();
         grid.initialization();
         Menu.MenuRepresentation menu = new Menu.MenuRepresentation(this);
+
         try {
             menu.init();
         } catch (InterruptedException e) {
@@ -43,38 +45,34 @@ public class Game {
     /**
      * Getting a random background for gameplay each time game is started.
      */
-    
+
     public void start(){
-        if (!gameOn) {
+
+
             int random = (int) (Math.random() * Backgrounds.values().length);
             gameBackGround = new Picture(Grid.PADDING, Grid.PADDING, Backgrounds.values()[random].getPath());
             gameBackGround.draw();
+
             gameOn = true;
+
             gameSound = new Sound("/Resources/sounds/GameMusic.wav");
             gameSound.play(true);
             gameSound.setLoop(10);
+
             points = 0;
 
             player = new Player(grid);
-            collisionDetector = new CollisionDetector(gameObjects, player);
-
 
             gameObjects = new ArrayList<>();
             GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
             gameObjects.add(gameObject);
 
-
-
-
-        }
-        if (gameOn) {
-            return;
-        }
+            collisionDetector = new CollisionDetector(gameObjects, player);
 
             while (lifes > 0) {
 
 
-                GameObject gameObject = GameObjectFactory.createNewGameObject(grid);
+                gameObject = GameObjectFactory.createNewGameObject(grid);
                 gameObjects.add(gameObject);
 
 
@@ -133,5 +131,12 @@ public class Game {
 
     public static void decreaseLife () {
         lifes--;
+    }
+
+    public boolean isGameOn() {
+        return gameOn;
+    }
+    public void setGameOn() {
+        gameOn = true;
     }
 }

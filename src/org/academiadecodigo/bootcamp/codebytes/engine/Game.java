@@ -4,8 +4,6 @@ import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
 import org.academiadecodigo.bootcamp.codebytes.media.Backgrounds;
 import org.academiadecodigo.bootcamp.codebytes.media.sound.Sound;
 import org.academiadecodigo.bootcamp.codebytes.menus.Menu;
-import org.academiadecodigo.bootcamp.codebytes.objectfactory.GameObjectType;
-import org.academiadecodigo.bootcamp.codebytes.objects.figures.Player;
 import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
 import org.academiadecodigo.simplegraphics.pictures.Picture;

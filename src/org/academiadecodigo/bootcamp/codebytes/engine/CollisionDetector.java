@@ -18,22 +18,7 @@ public class CollisionDetector {
         this.player = player;
     }
 
-    // if object hits the player
 
-    //if object hits the ground
-
-   /* public boolean isUnSafe(GridPosition position) {
-
-        for (GameObject object : gameObjects) {
-
-            if (object.getPos()!= pos && object.getPos().equals(pos)) {
-                return true;
-            }
-
-        }
-
-        return false;
-    }*/
 
     public void checkCollision() {
 

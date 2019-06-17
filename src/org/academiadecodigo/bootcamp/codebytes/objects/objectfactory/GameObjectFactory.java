@@ -23,59 +23,59 @@ public class GameObjectFactory {
         switch (gameObjectType) {
 
             case ALEXANDRA:
-                gameObject = new Alexandra(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Alexandra.png"));
+                gameObject = new Alexandra(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Alexandra.png"));
                 break;
 
             case EMACS:
-                gameObject = new Emacs(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Linus.png"));
+                gameObject = new Emacs(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Linus.png"));
                 break;
 
             case FAUSTINO:
-                gameObject = new Faustino(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Faustino.png"));
+                gameObject = new Faustino(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Faustino.png"));
                 break;
 
             case GIT:
-                gameObject = new Git(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Git.png"));
+                gameObject = new Git(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Git.png"));
                 break;
 
             case INTELLIJ:
-                gameObject = new Intellij(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Git.png"));
+                gameObject = new Intellij(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Git.png"));
                 break;
 
             case JAVA:
-                gameObject = new Java(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Java.png"));
+                gameObject = new Java(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Java.png"));
                 break;
 
             case LINUX:
-                gameObject = new Linux(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Linux.png"));
+                gameObject = new Linux(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Linux.png"));
                 break;
 
             case MAC:
-                gameObject = new Mac(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Apple.png"));
+                gameObject = new Mac(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Apple.png"));
                 break;
 
             case MARIANA:
-                gameObject = new Mariana(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Mariana.png"));
+                gameObject = new Mariana(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Mariana.png"));
                 break;
 
             case NVIDIA:
-                gameObject = new Nvidia(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Nvidia.png"));
+                gameObject = new Nvidia(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Nvidia.png"));
                 break;
 
             case SERINGAS:
-                gameObject = new Seringas(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Seringas.png"));
+                gameObject = new Seringas(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Seringas.png"));
                 break;
 
             case VIM:
-                gameObject = new Vim(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Vim.png"));
+                gameObject = new Vim(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Vim.png"));
                 break;
 
             case WINDOWS:
-                gameObject = new Windows(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Windows.png"));
+                gameObject = new Windows(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Windows.png"));
                 break;
 
             default:
-                gameObject = new Java(new GridPosition(((int) (Math.random()*24)), 0, grid, "Resources/Logos/Java.png"));
+                gameObject = new Java(new GridPosition(((int) (Math.random()*24)), 0, grid, "resources/Logos/Java.png"));
         }
 
         return gameObject;

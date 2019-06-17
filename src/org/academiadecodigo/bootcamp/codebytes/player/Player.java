@@ -20,7 +20,7 @@ public class Player implements KeyboardHandler {
     protected GridDirection currentDirection;
 
     public Player(Grid grid) {
-        playerPosition = new GridPosition(((int) (Math.random() * 24)), 12, grid, "resources/Logos/Player.png" );
+        playerPosition = new GridPosition(((int) (Math.random() * 24)), 12, grid, "resources/logos/Player.png" );
         //this.currentDirection = GridDirection.DOWN;
         lives = 3;
         keyboard = new Keyboard(this);

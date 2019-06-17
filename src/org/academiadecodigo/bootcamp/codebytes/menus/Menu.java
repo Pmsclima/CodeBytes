@@ -29,10 +29,10 @@ public class Menu {
 
         public MenuRepresentation(Game game) {
 
-            this.menuPresentScreen = new Picture(Grid.PADDING,Grid.PADDING, "resources/Menu/Team 4.jpg"); // first screen after game initialization;
-            this.menuMain = new Picture(Grid.PADDING, Grid.PADDING, "resources/Menu/Menu.jpg"); //button menu;
-            this.menuLoading = new Picture(Grid.PADDING,Grid.PADDING, "resources/Menu/Start.jpg"); // logo screen;
-            this.instructions = new Picture(Grid.PADDING,Grid.PADDING, "resources/Menu/Instructions.jpg"); // instructions screen;
+            this.menuPresentScreen = new Picture(Grid.PADDING,Grid.PADDING, "resources/menu/Team 4.jpg"); // first screen after game initialization;
+            this.menuMain = new Picture(Grid.PADDING, Grid.PADDING, "resources/menu/Menu.jpg"); //button menu;
+            this.menuLoading = new Picture(Grid.PADDING,Grid.PADDING, "resources/menu/Start.jpg"); // logo screen;
+            this.instructions = new Picture(Grid.PADDING,Grid.PADDING, "resources/menu/Instructions.jpg"); // instructions screen;
             this.credits = new Picture(Grid.PADDING,Grid.PADDING, "resources/menu/credits.png"); // credits screen;
             loading = new Sound("/resources/sounds/MGMT_Kids.wav"); // sound loaded when game is initialized;
             this.game = game;

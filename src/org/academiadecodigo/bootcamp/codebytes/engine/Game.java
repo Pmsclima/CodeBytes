@@ -11,7 +11,7 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import java.awt.*;
+
 import java.util.ArrayList;
 
 public class Game {
@@ -53,7 +53,7 @@ public class Game {
             gameBackGround.draw();
 
             gameOn = true;
-            gameSound = new Sound("/Resources/sounds/GameMusic.wav");
+            gameSound = new Sound("/resources/sounds/GameMusic.wav");
             gameSound.play(true);
             gameSound.setLoop(10);
 

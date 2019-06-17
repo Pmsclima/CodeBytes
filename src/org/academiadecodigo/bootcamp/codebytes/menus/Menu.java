@@ -44,10 +44,10 @@ public class Menu {
 
             menuPresentScreen.draw();
             loading.play(false);
-            Thread.sleep(700);
+            Thread.sleep(7000);
             menuLoading.draw();
             menuPresentScreen.delete();
-            Thread.sleep(1450);
+            Thread.sleep(14500);
             menuMain.draw();
             menuPresentScreen.delete();
 

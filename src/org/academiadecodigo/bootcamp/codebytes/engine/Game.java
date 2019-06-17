@@ -156,9 +156,9 @@ public class Game {
 
 
     public void scoreInit(Integer score) {
-        displayScore = new Text(1100, 30, score.toString());
+        displayScore = new Text(1050, 30, score.toString());
         displayScore.setColor(Color.WHITE);
-        displayScore.grow(15, 15);
+        displayScore.grow(20, 20);
     }
 
     public void drawScore(){

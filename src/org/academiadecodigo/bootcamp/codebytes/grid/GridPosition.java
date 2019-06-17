@@ -1,10 +1,8 @@
 package org.academiadecodigo.bootcamp.codebytes.grid;
 
 import org.academiadecodigo.bootcamp.codebytes.engine.Game;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Special;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.GameObject;
+import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.special.Special;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GridPosition {
@@ -48,8 +46,12 @@ public class GridPosition {
         if (row + 1 > grid.getRows()-1) {
             if (gameObject instanceof Special) {
                 collision();
+                gameObject.collided();
                 return;
             }
+
+            collision();
+            gameObject.collided();
 
             Game.decreaseLife();
         }

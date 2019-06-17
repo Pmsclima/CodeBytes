@@ -1,8 +1,8 @@
 package org.academiadecodigo.bootcamp.codebytes.engine;
 
 
-import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_types.special.Special;
+import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.GameObject;
+import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.special.Special;
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
 
 

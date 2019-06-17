@@ -1,16 +1,17 @@
 package org.academiadecodigo.bootcamp.codebytes.engine;
 
 import org.academiadecodigo.bootcamp.codebytes.grid.Grid;
-import org.academiadecodigo.bootcamp.codebytes.grid.GridDirection;
 import org.academiadecodigo.bootcamp.codebytes.media.Backgrounds;
 import org.academiadecodigo.bootcamp.codebytes.media.sound.Sound;
 import org.academiadecodigo.bootcamp.codebytes.menus.Menu;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectFactory;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_factory.GameObjectType;
-import org.academiadecodigo.bootcamp.codebytes.objects.object_types.GameObject;
+import org.academiadecodigo.bootcamp.codebytes.objects.objectfactory.GameObjectFactory;
+import org.academiadecodigo.bootcamp.codebytes.objects.objecttypes.GameObject;
 import org.academiadecodigo.bootcamp.codebytes.player.Player;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Game {
@@ -21,10 +22,12 @@ public class Game {
     private Grid grid;
     private ArrayList <GameObject> gameObjects;
     private static int points;
-    private static int lifes =3;
+    private static int lifes = 20;
     Picture gameBackGround;
     Sound gameSound;
     private boolean gameOn;
+    private Text displayScore;
+    private Text displayLife;
 
     public Game() {
     }
@@ -48,11 +51,18 @@ public class Game {
             int random = (int) (Math.random() * Backgrounds.values().length);
             gameBackGround = new Picture(Grid.PADDING, Grid.PADDING, Backgrounds.values()[random].getPath());
             gameBackGround.draw();
+
             gameOn = true;
             gameSound = new Sound("/Resources/sounds/GameMusic.wav");
             gameSound.play(true);
             gameSound.setLoop(10);
+
             points = 0;
+
+            scoreInit(points);
+            drawScore();
+            lifeInit(lifes);
+            drawLife();
 
             player = new Player(grid);
 
@@ -72,6 +82,12 @@ public class Game {
 
                 moveAllObjects();
                 collisionDetector.checkCollision();
+
+
+                updateScore(points);
+                updateLife(lifes);
+
+
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -103,7 +119,9 @@ public class Game {
             e.getMessage();
         }
 
-        menu.mainMenu();
+
+
+
         gameOver.delete();
     }
 
@@ -133,5 +151,35 @@ public class Game {
 
     public boolean isGameOn(){
         return gameOn;
+    }
+
+
+
+    public void scoreInit(Integer score) {
+        displayScore = new Text(1100, 30, score.toString());
+        displayScore.setColor(Color.WHITE);
+        displayScore.grow(15, 15);
+    }
+
+    public void drawScore(){
+        displayScore.draw();
+    }
+
+    public void updateScore(Integer newScore){
+        displayScore.setText(newScore.toString());
+    }
+
+    public void lifeInit(Integer lifes) {
+        displayLife = new Text (1150, 30, lifes.toString());
+        displayLife.setColor(Color.RED);
+        displayLife.grow(15, 15);
+    }
+
+    public void drawLife() {
+        displayLife.draw();
+    }
+
+    public void updateLife(Integer newLife) {
+        displayLife.setText(newLife.toString());
     }
 }
